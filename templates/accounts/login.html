@@ -8,7 +8,8 @@
 
     <!-- ACCOUNT PAGE -->
     <div class="container">
-        <form class="form-signin" method="post" action="{% url 'accounts:login' %}">
+        <form class="form-signin" method="POST" action="">
+            {% csrf_token %}
 
             <h2 class="form-signin-heading text-center">Login</h2>
             {% if messages %}

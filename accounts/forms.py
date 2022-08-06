@@ -1,5 +1,5 @@
 from django import forms
-from django.forms.widgets import PasswordInput, TextInput, EmailInput, FileInput, NumberInput
+from django.forms.widgets import PasswordInput, TextInput, EmailInput, FileInput, NumberInput, DateInput
 from .models import CustomUser
 
 
@@ -30,8 +30,7 @@ class UserRegistrationForm(forms.ModelForm):
     def save(self, commit=False):
         user = super().save(commit=False)
         user.set_password(self.cleaned_data['password2'])
-        if commit:
-            user.save()
+        user.save()
         return user 
 
 class CustomAuthForm(forms.Form): 
